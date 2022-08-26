@@ -14,10 +14,10 @@ function calculateCoins() {
     value = calc[0];
     coins.fifty = calc[1];
     calc = calculateTwentyFiveCentCoins(value);
-    value = calc[0];
+    value = +(calc[0].toFixed(2));
     coins.twentyFive = calc[1];
     calc = calculateTenCentCoins(value);
-    value = calc[0];
+    value = +(calc[0].toFixed(2));
     coins.ten = calc[1];
     calc = calculateFiveCentCoins(value);
     coins.one = Math.ceil(calc[0] * 100);
@@ -30,6 +30,7 @@ function calculateFiftyCentCoins(value) {
     let fiftyCentCoins = 0;
     if (value >= 0.5) {
         fiftyCentCoins = parseInt(value / 0.5);
+        console.log(fiftyCentCoins);
         value -= fiftyCentCoins * 0.5;
     }
     return [value, fiftyCentCoins];
@@ -39,6 +40,7 @@ function calculateTwentyFiveCentCoins(value) {
     let twentyFiveCentCoins = 0;
     if (value >= 0.25) {
         twentyFiveCentCoins = parseInt(value / 0.25);
+        console.log(twentyFiveCentCoins);
         value -= twentyFiveCentCoins * 0.25;
     }
     return [value, twentyFiveCentCoins];
@@ -46,8 +48,10 @@ function calculateTwentyFiveCentCoins(value) {
 
 function calculateTenCentCoins(value) {
     let tenCentCoins = 0;
+    console.log(value);
     if (value >= 0.10) {
         tenCentCoins = parseInt(value / 0.1);
+        console.log(tenCentCoins);
         value -= tenCentCoins * 0.1;
     }
     return [value, tenCentCoins];
@@ -55,7 +59,6 @@ function calculateTenCentCoins(value) {
 
 function calculateFiveCentCoins(value) {
     let fiveCentCoins = 0;
-    console.log(value);
     if (value >= 0.05) {
         fiveCentCoins = parseInt(value / 0.05);
         value -= fiveCentCoins * 0.05;
