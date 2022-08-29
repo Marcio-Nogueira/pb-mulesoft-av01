@@ -19,6 +19,7 @@ public class User {
 
     public User setCorrect() {
         this.correct = correct + 1;
+        System.out.println("Parabéns, você acertou.");
         return this;
     }
 
@@ -28,6 +29,7 @@ public class User {
 
     public User setError() {
         this.error = error + 1;
+        System.out.println("Você errou.");
         return this;
     }
 }
